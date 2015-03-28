@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1427498163 source:c:\dropbox\wagner\c++\porrinha\main.cpp
+1427569687 source:c:\dropbox\wagner\c++\porrinha\main.cpp
 	<iostream>
 	<windows.h>
 	<string>
 	"Factory.h"
-	"TipoJogador.h"
+	"Player.h"
 	"Jogo.h"
 
-1427569481 source:c:\dropbox\wagner\c++\porrinha\jogo.cpp
+1427571033 source:c:\dropbox\wagner\c++\porrinha\jogo.cpp
 	<stdlib.h>
 	"Jogo.h"
 	"Player.h"
@@ -26,10 +26,11 @@
 	<vector>
 	<string>
 
-1427569445 source:c:\dropbox\wagner\c++\porrinha\factory.cpp
+1427570534 source:c:\dropbox\wagner\c++\porrinha\factory.cpp
 	"Factory.h"
 	"AI.h"
 	"Player.h"
+	"human_player.h"
 
 1427569658 c:\dropbox\wagner\c++\porrinha\ai.h
 	"Player.h"
@@ -41,4 +42,11 @@
 1427569354 c:\dropbox\wagner\c++\porrinha\player.h
 	<string>
 	<vector>
+
+1427570403 c:\dropbox\wagner\c++\porrinha\human_player.h
+	"player.h"
+
+1427570911 source:c:\dropbox\wagner\c++\porrinha\human_player.cpp
+	<iostream>
+	"human_player.h"
 

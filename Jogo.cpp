@@ -130,10 +130,15 @@ void Jogo::partida() {
 	_jogadorAtual = rand() % _numeroJogadores;
 
 	while ( pegarPerdedor() == SEM_VENCENDOR ) {
+	    int jogadoresJogando=0;
 		int maoTotal = 0;
+        for(auto jogador: _jogadores){
+            if(jogador.estaJogando) jogadoresJogando++;
+
+        }
 
 		/**inicio da rodada. Todos jogadores escondem os palitos na mão*/
-		for ( int i = 0; i < _numeroJogadores; i++ ) {
+		for ( int i = 0; i < jogadoresJogando; i++ ) {
 			Jogador* atual = &_jogadores[_jogadorAtual];
 
 			atual->cantada = NAO_JOGOU;
@@ -144,31 +149,31 @@ void Jogo::partida() {
 
 
 		/**Palpites de cada jogador*/
-		for ( int i = 0; i < _numeroJogadores; i++ ) {
+		for ( int i = 0; i < jogadoresJogando; i++ ) {
 			Jogador* atual = &_jogadores[_jogadorAtual];
 			pegarCantada ( *atual );
 			proximoJogador();
 		}
 		fimDeRodada();
 		/**verifica algum ganhador e atualiza o proximo a iniciar*/
-		for ( int i = 0; i < _numeroJogadores; i++ ) {
+		bool houveGanhador=0;
+		for ( int i = 0; i < jogadoresJogando; i++ ) {
 			Jogador* atual = &_jogadores[i];
 			if ( atual->cantada == maoTotal ) {
 				atual->palitos --;
 				_jogadorAtual = i;
+				houveGanhador=true;
 				if ( atual->palitos <= 0 ) {
 					proximoJogador();
 					ganhou ( *atual );
 				}
-
-
-			} else {
-				proximoJogador();
 			}
 		}
+		if(!houveGanhador)
+            proximoJogador();
 
 		/** reseta jogadores para proxima rodada*/
-for ( auto &atual: _jogadores ) {
+        for ( auto &atual: _jogadores ) {
 			if ( atual.estaJogando ) {
 				atual.mao = NAO_JOGOU;
 				atual.cantada = NAO_JOGOU;
