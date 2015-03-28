@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1427498163 source:c:\dropbox\wagner\c++\porrinha\main.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	"Factory.h"
+	"TipoJogador.h"
+	"Jogo.h"
+
+1427515242 source:c:\dropbox\wagner\c++\porrinha\jogo.cpp
+	<stdlib.h>
+	"Jogo.h"
+	"TipoJogador.h"
+	<iostream>
+
+1427498437 c:\dropbox\wagner\c++\porrinha\jogo.h
+	<vector>
+
+1427486548 c:\dropbox\wagner\c++\porrinha\factory.cpp
+	"Factory.h"
+
+1427498403 c:\dropbox\wagner\c++\porrinha\factory.h
+	<vector>
+
+1427495846 c:\dropbox\wagner\c++\porrinha\tipojogador.h
+	<vector>
+	<string>
+
+1427499374 source:c:\dropbox\wagner\c++\porrinha\factory.cpp
+	"Factory.h"
+	"AI.h"
+	"TipoJogador.h"
+
+1427515344 c:\dropbox\wagner\c++\porrinha\ai.h
+	"TipoJogador.h"
+	<stdlib.h>
+
+1427498202 source:c:\dropbox\wagner\c++\porrinha\ai.cpp
+	"TipoJogador.h"
+
