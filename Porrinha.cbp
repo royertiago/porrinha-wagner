@@ -39,7 +39,10 @@
 		<Unit filename="Jogo.cpp" />
 		<Unit filename="Jogo.h" />
 		<Unit filename="TipoJogador.h" />
+		<Unit filename="human_player.cpp" />
+		<Unit filename="human_player.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="player.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
