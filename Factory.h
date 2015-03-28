@@ -2,14 +2,14 @@
 #define FACTORY_H
 #include <vector>
 
-    class TipoJogador;
+    class Player;
 
     class Factory
     {
         public:
             Factory();
             virtual ~Factory();
-           static  std::vector<TipoJogador*> criarJogadores();
+           static  std::vector<Player*> criarJogadores();
         protected:
         private:
     };

@@ -1,21 +1,22 @@
 #ifndef JOGO_H
 #define JOGO_H
 #include <vector>
-class TipoJogador;
+class Player;
 
 class Jogo
 {
 
     public:
 
-        Jogo(std::vector<TipoJogador*> jogadores, int numeroRodadas = 5, int numeroPalitos = 3 );
+        Jogo(std::vector<Player*> jogadores, int numeroRodadas = 5, int numeroPalitos = 3 );
+
+
         void comecar();
         virtual ~Jogo();
-
         struct Jogador{
             int mao,cantada,palitos;
             bool estaJogando=true;
-            TipoJogador* ai;
+            Player* ai;
 
         };
 
@@ -33,8 +34,6 @@ class Jogo
         virtual void ganhou(Jogador&);
 
         void proximoJogador();
-
-
 
         std::vector<Jogador> _jogadores;
         std::vector<Jogador> _placar;

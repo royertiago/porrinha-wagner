@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <string>
 #include "Factory.h"
-#include "TipoJogador.h"
+#include "Player.h"
 #include "Jogo.h"
 using namespace std;
 void gotoxy (int x, int y){
@@ -12,7 +12,7 @@ void gotoxy (int x, int y){
 }
 int main(int argc, char *argv[]=0)
 {
-    vector<TipoJogador*> jogadores=Factory::criarJogadores();
+    vector<Player*> jogadores=Factory::criarJogadores();
     int jogos=5;
 
     if(argc>1){

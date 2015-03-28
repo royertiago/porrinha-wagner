@@ -1,28 +1,28 @@
-#include "TipoJogador.h"
+#include "Player.h"
 #include <stdlib.h>
 
-class zero2 : public TipoJogador{
-    std::string nome(){
+class zero2 : public Player{
+    std::string name() const{
         return "zeroDois";
     }
-     int pegarMao(){
+     int hand(){
          return 2;
     }
-    unsigned int pegarCantada ( std::vector<int> cantadas ){
+     int guess ( const std::vector<int>& cantadas ){
         return 2;
     }
-        void informarRodada ( std::vector<int> numeroDePalitos, std::vector<int> cantadas ){
+        void settle_round ( const std::vector<int>& numeroDePalitos, const std::vector<int>& cantadas ){
 
     }
 };
-class randyRandom : public TipoJogador{
-    std::string nome(){
+class randyRandom : public Player{
+    std::string name() const{
         return "Randy";
     }
-     int pegarMao(){
+     int hand(){
          return rand()%3;
     }
-    unsigned int pegarCantada ( std::vector<int> cantadas ){
+     int guess ( const std::vector<int>& cantadas ){
         int cont=0;
         for(auto x: cantadas){
              cont+=3;
@@ -31,7 +31,7 @@ class randyRandom : public TipoJogador{
         return rand()%cont;
 
     }
-    void informarRodada ( std::vector<int> numeroDePalitos, std::vector<int> cantadas ){
+    void settle_round ( const std::vector<int>& numeroDePalitos, const std::vector<int>& cantadas ){
 
     }
 

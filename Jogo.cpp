@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "Jogo.h"
-#include "TipoJogador.h"
+#include "Player.h"
 #include <iostream>
 
 #define NAO_JOGOU -1
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-Jogo::Jogo ( std::vector<TipoJogador*> jogadores, int numeroPartidas , int numeroPalitos  ) :
+Jogo::Jogo ( std::vector<Player*> jogadores, int numeroPartidas , int numeroPalitos  ) :
 	_numeroPartidas ( numeroPartidas ),
 	_numeroPalitos ( numeroPalitos ),
 	_partidaAtual(0)
@@ -75,22 +75,22 @@ void Jogo::ganhou ( Jogador& j ) {
 void Jogo::pegarCantada ( Jogador& jogador ) {
 	std::vector<int> cantadas = vetorCantadas ( _jogadores );
 
-	int cantada = jogador.ai->pegarCantada ( cantadas );
+	int cantada = jogador.ai->guess ( cantadas );
 	//verifica se é uma cantada repetida
     for ( auto &atual: _jogadores ) {
 		if ( atual.cantada == cantada ) {
 			cantada = NAO_JOGOU;
-			std::cout << "Jogador " << (jogador.ai->nome()) << " cantada invalida" <<std::endl;
+			std::cout << "Jogador " << (jogador.ai->name()) << " cantada invalida" <<std::endl;
 
 		}
 	}
 	jogador.cantada = cantada;
 }
 void Jogo::pegarMao ( Jogador& jogador ) {
-	int mao = jogador.ai->pegarMao();
+	int mao = jogador.ai->hand();
 	if ( mao < 0 || mao > _numeroPalitos ) {
 		mao = 0;
-		std::cout << "Jogador " << jogador.ai->nome() << " mao invalida" <<std::endl;
+		std::cout << "Jogador " << jogador.ai->name() << " mao invalida" <<std::endl;
 	}
 	jogador.mao = mao;
 
@@ -122,7 +122,7 @@ void Jogo::fimDeRodada() {
 	std::vector<int> cantadas = vetorCantadas ( _jogadores );
 	std::vector<int> maos = vetorMaos ( _jogadores );
 for ( auto &atual: _jogadores ) {
-		atual.ai->informarRodada ( maos, cantadas );
+		atual.ai->settle_round ( maos, cantadas );
 	}
 
 }
@@ -190,7 +190,7 @@ void Jogo::placarRodada() {
 	int cont = 1;
 	cout << "partida " << _partidaAtual << endl;
 for ( auto &jogador: _placar ) {
-		cout << cont << ": " << jogador.ai->nome() << endl;
+		cout << cont << ": " << jogador.ai->name() << endl;
 		cont++;
 	}
 	std::cout << "" << std::endl;
