@@ -15,6 +15,7 @@ struct Player {
         const std::vector<int>& hands,
         const std::vector<int>& guesses
     ) = 0;
+    virtual void end_round()=0;
 };
 
 typedef Player * ( *PlayerFactory )( int player_num, int starting_chopsticks );

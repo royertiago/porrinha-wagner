@@ -2,6 +2,7 @@
 #include "Jogo.h"
 #include "Player.h"
 #include <iostream>
+#include <algorithm>
 
 #define NAO_JOGOU -1
 #define FORA_DE_JOGO -2
@@ -53,16 +54,21 @@ void Jogo::comecar() {
 			jogador.estaJogando = true;
 		}
 		partida();
+		for(auto x: _jogadores){
+			x.ai->end_round();
+		}
 		placarRodada();
 		_placar.clear();
 		_partidaAtual++;
 	}
 	placarTotal();
 }
+
 void Jogo::partida() {
 	_jogadorAtual = rand() % _numeroJogadores;
 
 	while ( pegarPerdedor() == SEM_VENCENDOR ) {
+
 		int maoTotal = 0;
 		int jogadoresJogando=0;
 
@@ -92,7 +98,7 @@ void Jogo::partida() {
 
 		/**verifica algum ganhador e atualiza o proximo a iniciar*/
 		bool houveGanhador=false;
-		for ( int i = 0; i < jogadoresJogando; i++ ) {
+		for ( int i = 0; i < _jogadores.size(); i++ ) {
 			Jogador* atual = &_jogadores[i];
 			if ( atual->cantada == maoTotal ) {
 				atual->palitos --;
@@ -107,7 +113,6 @@ void Jogo::partida() {
 		if(!houveGanhador){
 		    proximoJogador();
 		}
-
 		/** reseta jogadores para proxima rodada*/
         for ( auto &atual: _jogadores ) {
 			if ( atual.estaJogando ) {
@@ -119,8 +124,9 @@ void Jogo::partida() {
 			}
 		}
 	}
-	_placar.push_back ( _jogadores[ pegarPerdedor() ] );
+	_placar.push_back ( &_jogadores[ pegarPerdedor() ] );
 }
+
 int Jogo::pegarPerdedor() {
 	int cont = 0;
 	int jogador = -1;
@@ -153,7 +159,7 @@ void Jogo::proximoJogador() {
 
 void Jogo::ganhou ( Jogador& j ) {
 	j.estaJogando = false;
-	_placar.push_back ( j );
+	_placar.push_back ( &j );
 }
 
 void Jogo::pegarCantada ( Jogador& jogador ) {
@@ -172,7 +178,7 @@ void Jogo::pegarCantada ( Jogador& jogador ) {
 }
 void Jogo::pegarMao ( Jogador& jogador ) {
 	int mao = jogador.ai->hand();
-	if ( mao < 0 || mao > _numeroPalitos ) {
+	if ( mao < 0 || mao > jogador.palitos ) {
 		mao = 0;
 		std::cout << "Jogador " << jogador.ai->name() << " mao invalida" <<std::endl;
 	}
@@ -184,12 +190,35 @@ void Jogo::pegarMao ( Jogador& jogador ) {
 void Jogo::placarRodada() {
 	int cont = 1;
 	cout << "partida " << _partidaAtual << endl;
-for ( auto &jogador: _placar ) {
-		cout << cont << ": " << jogador.ai->name() << endl;
+    for ( auto jogador: _placar ) {
+		cout << cont << ": " << jogador->ai->name() << endl;
+
+		switch (cont)
+		{
+		    case 1: {jogador->pontos+=5;
+		        break;}
+            case 2:{ jogador->pontos+=2; break;}
+            case 3: {jogador->pontos+=1; break;}
+		    default:
+		        break;
+		}
+
 		cont++;
 	}
 	std::cout << "" << std::endl;
 
 }
-void Jogo::placarTotal() {}
+static bool sortJ(Jogo::Jogador a, Jogo::Jogador b){
+    return a<b;
+}
+void Jogo::placarTotal() {
+    std::sort(_jogadores.begin(),_jogadores.end(),sortJ );
+    std::reverse(_jogadores.begin(),_jogadores.end());
+
+    for(auto &jogador: _jogadores ){
+        std::cout<< "Jogador: " <<jogador.ai->name()<<" fez "<<jogador.pontos<<"  pontos"<< std::endl;
+
+    }
+
+}
 
