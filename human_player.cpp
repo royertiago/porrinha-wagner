@@ -49,22 +49,22 @@ int HumanPlayer::guess( const std::vector<int>& other_guesses ) {
     }
 
     std::cout << "Human " << _name << ", type your guess for this round:";
-    int guess;
+     lastguess;
     while( true ) {
-        std::cin >> guess;
+        std::cin >> lastguess;
         if( !std::cin ) {
             std::cout << "Please type a number:";
             std::cin.clear();
             continue;
         }
-        if( guess < 0 ) {
+        if( lastguess < 0 ) {
             std::cout << "Your cannot guess a negative number of chopsticks!\n"
                 "Type a valid guess.";
             continue;
         }
         break;
     }
-    return guess;
+    return lastguess;
 }
 
 void HumanPlayer::settle_round(
@@ -74,6 +74,16 @@ void HumanPlayer::settle_round(
     for( unsigned i = 0; i < guesses.size(); i++ )
         std::cout << "Player " << i << " guessed " << guesses[i]
             << " and played " << hands[i] << " choptsicks.\n";
+
+    int sum=0;
+    for ( auto x: hands ) {
+		if ( x > 0 )
+			sum += x;
+	}
+	std::cout<< "Total sticks: "<<sum<<" you guessed "<<lastguess <<std::endl;
+
+
 }
+
 
 } // namespace human_player

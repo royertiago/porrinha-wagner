@@ -19,6 +19,8 @@ namespace human_player {
             const std::vector<int>& hands,
             const std::vector<int>& guesses
         ) override;
+        int lastguess=0;
+        void end_round(){}
     };
 
 } // namespace human_player

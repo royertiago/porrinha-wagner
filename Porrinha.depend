@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1427569687 source:c:\dropbox\wagner\c++\porrinha\main.cpp
+1427766215 source:c:\dropbox\wagner\c++\porrinha\main.cpp
 	<iostream>
 	<windows.h>
 	<string>
 	"Factory.h"
 	"Player.h"
+	<time.h >
 	"Jogo.h"
 
-1427642265 source:c:\dropbox\wagner\c++\porrinha\jogo.cpp
+1427766359 source:c:\dropbox\wagner\c++\porrinha\jogo.cpp
 	<stdlib.h>
 	"Jogo.h"
 	"Player.h"
@@ -27,28 +28,69 @@
 	<vector>
 	<string>
 
-1427642290 source:c:\dropbox\wagner\c++\porrinha\factory.cpp
+1427766385 source:c:\dropbox\wagner\c++\porrinha\factory.cpp
 	"Factory.h"
 	"AI.h"
 	"Player.h"
 	"human_player.h"
+	"Saobarbeta.h"
+	"RandyRandom.h"
 
-1427642317 c:\dropbox\wagner\c++\porrinha\ai.h
-	"Player.h"
-	<stdlib.h>
-	<iostream>
+1427767183 c:\dropbox\wagner\c++\porrinha\ai.h
 
-1427498202 source:c:\dropbox\wagner\c++\porrinha\ai.cpp
-	"TipoJogador.h"
+1427767197 source:c:\dropbox\wagner\c++\porrinha\ai.cpp
+	"ai.h"
+	"Zero2.h"
 
-1427641954 c:\dropbox\wagner\c++\porrinha\player.h
+1427766367 c:\dropbox\wagner\c++\porrinha\player.h
 	<string>
 	<vector>
 
-1427570403 c:\dropbox\wagner\c++\porrinha\human_player.h
+1427734388 c:\dropbox\wagner\c++\porrinha\human_player.h
 	"player.h"
 
-1427570911 source:c:\dropbox\wagner\c++\porrinha\human_player.cpp
+1427734395 source:c:\dropbox\wagner\c++\porrinha\human_player.cpp
 	<iostream>
 	"human_player.h"
+
+1427734792 c:\dropbox\wagner\c++\porrinha\saobarbeta.h
+	"Player.h"
+	<iostream>
+	<vector>
+
+1427766377 source:c:\dropbox\wagner\c++\porrinha\saobarbeta.cpp
+	"Saobarbeta.h"
+
+1427737173 c:\dropbox\wagner\c++\porrinha\randyrandom.h
+	"Player.h"
+
+1427737176 source:c:\dropbox\wagner\c++\porrinha\randyrandom.cpp
+	"RandyRandom.h"
+
+1427766945 source:c:\dropbox\wagner\c++\porrinha\zero2.cpp
+	"Zero2.h"
+	"util.h"
+
+1427767223 c:\dropbox\wagner\c++\porrinha\zero2.h
+	"Player.h"
+
+1427737105 source:c:\dropbox\wagner\c++\porrinha\run.cpp
+	<iostream>
+	"run.h"
+
+1427737109 c:\dropbox\wagner\c++\porrinha\run.h
+	<map>
+	<memory>
+	<vector>
+	"player.h"
+
+1427737301 source:c:\dropbox\wagner\c++\porrinha\util.cpp
+	"util.h"
+	"run.h"
+
+1427737094 c:\dropbox\wagner\c++\porrinha\util.h
+	"player.h"
+
+1427737318 source:c:\dropbox\wagner\c++\porrinha\player.cpp
+	"player.h"
 

@@ -3,6 +3,7 @@
 #include <string>
 #include "Factory.h"
 #include "Player.h"
+#include <time.h >
 #include "Jogo.h"
 using namespace std;
 void gotoxy (int x, int y){
@@ -12,6 +13,7 @@ void gotoxy (int x, int y){
 }
 int main(int argc, char *argv[]=0)
 {
+    srand(time(0));
     vector<Player*> jogadores=Factory::criarJogadores();
     int jogos=5;
 
@@ -20,7 +22,7 @@ int main(int argc, char *argv[]=0)
         std::cout<< temp <<std::endl;
        // jogos=std::stoi (temp);
     }
-    Jogo jogo= Jogo(jogadores);
+    Jogo jogo= Jogo(jogadores,500);
 
     jogo.comecar();
 
