@@ -1,6 +1,8 @@
 #include "Smarty.h"
 using namespace std;
 
+namespace wagner {
+
 Smarty::Smarty( std::string name, int palitos ) :
 	_name ( name ), totalSticks ( palitos )
 {
@@ -88,3 +90,5 @@ void Smarty::end_round() {
     }
 
 }
+
+} // namespace wagner

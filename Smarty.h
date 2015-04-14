@@ -3,6 +3,9 @@
 #include "Player.h"
 #include <iostream>
 #include <vector>
+
+namespace wagner {
+
 class Smarty : public Player
 {
 	public:
@@ -36,5 +39,7 @@ class Smarty : public Player
 
 	private:
 };
+
+} // namespace wagner
 
 #endif // SMARTY_H

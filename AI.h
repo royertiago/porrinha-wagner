@@ -1,4 +1,4 @@
 class Player;
-namespace zero2 {
+namespace wagner {
     Player * generate( int players, int chopsticks );
-} // namespace human_player
+}
