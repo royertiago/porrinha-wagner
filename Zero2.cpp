@@ -1,5 +1,5 @@
 #include "Zero2.h"
-#include "util.h"
+#include "core/util.h"
 namespace wagner {
 	Zero2::Zero2(std::string name):_name(name)
 	{

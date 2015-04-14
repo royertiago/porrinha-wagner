@@ -1,4 +1,6 @@
 class Player;
 namespace wagner {
-    Player * generate( int players, int chopsticks );
+    Player * generateZero2( int players, int chopsticks );
+    Player * generateRandyRandom( int players, int chopsticks );
+    Player * generateSmarty( int players, int chopsticks );
 }
