@@ -1,16 +1,18 @@
+#include "player.h"
 #include "ai.h"
 #include "Zero2.h"
 #include "RandyRandom.h"
 #include "Smarty.h"
+#include "core/util.h"
 
 namespace wagner {
-    Player * generateZero2( int players, int chopsticks ){
+    Player * generateZero2( cmdline::args&& ){
         return new Zero2();
     }
-    Player * generateRandyRandom( int, int ) {
+    Player * generateRandyRandom( cmdline::args&& ) {
         return new randyRandom();
     }
-    Player * generateSmarty( int, int chopsticks ) {
-        return new Smarty( "Smarty", chopsticks );
+    Player * generateSmarty( cmdline::args&& ) {
+        return new Smarty();
     }
 } // namespace wagner

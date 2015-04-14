@@ -1,6 +1,7 @@
 #ifndef SMARTY_H
 #define SMARTY_H
 #include "player.h"
+#include "core/util.h"
 #include <iostream>
 #include <vector>
 
@@ -16,13 +17,11 @@ class Smarty : public Player
 
 		virtual std::string name() const override;
 
+        virtual void begin_game() override;
 		virtual int hand() override;
-		virtual int guess ( const std::vector<int>& other_guesses ) override;
-		virtual void settle_round (
-		    const std::vector<int>& hands,
-		    const std::vector<int>& guesses
-		) override;
-		virtual void end_round();
+		virtual int guess () override;
+		virtual void end_round () override;
+		virtual void end_game();
 
 		virtual ~Smarty();
 	protected:

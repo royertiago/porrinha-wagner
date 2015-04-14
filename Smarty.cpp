@@ -18,6 +18,8 @@ Smarty::~Smarty()
 std::string Smarty::name() const {
 	return _name;
 }
+void Smarty::begin_game() {
+}
 int Smarty::hand() {
 
 	if ( sticks == 0 ){
@@ -27,9 +29,9 @@ int Smarty::hand() {
 	myhand =rand() % (sticks+1);
 	return myhand;
 }
-int Smarty::guess ( const std::vector<int>& cantadas ) {
+int Smarty::guess () {
     if(firstRound){
-        for (int i=0;i<cantadas.size();i++){
+        for (int i=0;i<core::guess().size();i++){
             opponentSticks.push_back(totalSticks);
         }
         firstRound=false;
@@ -51,7 +53,7 @@ int Smarty::guess ( const std::vector<int>& cantadas ) {
     bool igual=true;
     while(igual){
             igual=false;
-            for(auto x: cantadas){
+            for(auto x: core::guess()){
                 if(myguess==x){
                     myguess++;
                     igual=true;
@@ -62,17 +64,17 @@ int Smarty::guess ( const std::vector<int>& cantadas ) {
 
 	return myguess;
 }
-void Smarty::settle_round ( const std::vector<int>& numeroDePalitos, const std::vector<int>& cantadas ) {
+void Smarty::end_round () {
 	int sum = 0;
-    for ( auto x: numeroDePalitos ) {
+    for ( auto x: core::hand() ) {
 		if ( x > 0 )
 			sum += x;
 	}
-    for (int i=0;i<cantadas.size();i++){
-        if(cantadas[i]==sum){
+    for (int i=0;i<core::guess().size();i++){
+        if(core::guess(i)==sum){
             opponentSticks[i]--;
         }
-        if(cantadas[i]==lastGuess){
+        if(core::guess(i)==lastGuess){
             self=i;
         }
     }
@@ -81,7 +83,7 @@ void Smarty::settle_round ( const std::vector<int>& numeroDePalitos, const std::
 		sticks--;
 	}
 }
-void Smarty::end_round() {
+void Smarty::end_game() {
 
 
     sticks=totalSticks;

@@ -14,13 +14,11 @@ namespace wagner{
 
             int hand() override;
 
-            int guess( const std::vector<int>& other_guesses ) override;
+            int guess() override;
 
-            void settle_round(
-                const std::vector<int>& hands,
-                const std::vector<int>& guesses
-            ) override;
             void end_round(){}
+            void begin_game(){}
+            void end_game(){}
 
 
         protected:
