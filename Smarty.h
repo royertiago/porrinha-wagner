@@ -1,12 +1,12 @@
-#ifndef SAOBARBETA_H
-#define SAOBARBETA_H
+#ifndef SMARTY_H
+#define SMARTY_H
 #include "Player.h"
 #include <iostream>
 #include <vector>
-class Saobarbeta : public Player
+class Smarty : public Player
 {
 	public:
-		Saobarbeta ( std::string name = "Barbeta", int palitos = 3 );
+		Smarty ( std::string name = "Smarty", int palitos = 3 );
 
 
 
@@ -21,7 +21,7 @@ class Saobarbeta : public Player
 		) override;
 		virtual void end_round();
 
-		virtual ~Saobarbeta();
+		virtual ~Smarty();
 	protected:
         std::string _name;
         int myhand=0;
@@ -37,4 +37,4 @@ class Saobarbeta : public Player
 	private:
 };
 
-#endif // SAOBARBETA_H
+#endif // SMARTY_H

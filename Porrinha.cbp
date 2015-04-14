@@ -7,8 +7,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin\Debug\Porrinha" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj\Debug\" />
+				<Option output="bin/Debug/Porrinha" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -16,8 +16,8 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release\Porrinha" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj\Release\" />
+				<Option output="bin/Release/Porrinha" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -39,10 +39,11 @@
 		<Unit filename="Jogo.cpp" />
 		<Unit filename="Jogo.h" />
 		<Unit filename="Player.h" />
+		<Unit filename="Player.h" />
 		<Unit filename="RandyRandom.cpp" />
 		<Unit filename="RandyRandom.h" />
-		<Unit filename="Saobarbeta.cpp" />
-		<Unit filename="Saobarbeta.h" />
+		<Unit filename="Smarty.cpp" />
+		<Unit filename="Smarty.h" />
 		<Unit filename="TipoJogador.h" />
 		<Unit filename="Zero2.cpp" />
 		<Unit filename="Zero2.h" />
@@ -50,7 +51,6 @@
 		<Unit filename="human_player.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="player.cpp" />
-		<Unit filename="player.h" />
 		<Unit filename="run.cpp" />
 		<Unit filename="run.h" />
 		<Unit filename="util.cpp" />
@@ -58,6 +58,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

@@ -1,7 +1,7 @@
-#include "Saobarbeta.h"
+#include "Smarty.h"
 using namespace std;
 
-Saobarbeta::Saobarbeta( std::string name, int palitos ) :
+Smarty::Smarty( std::string name, int palitos ) :
 	_name ( name ), totalSticks ( palitos )
 {
     opponentSticks= std::vector<int>();
@@ -9,14 +9,14 @@ Saobarbeta::Saobarbeta( std::string name, int palitos ) :
 
 }
 
-Saobarbeta::~Saobarbeta()
+Smarty::~Smarty()
 {
 	//dtor
 }
-std::string Saobarbeta::name() const {
+std::string Smarty::name() const {
 	return _name;
 }
-int Saobarbeta::hand() {
+int Smarty::hand() {
 
 	if ( sticks == 0 ){
 	    myhand=0;
@@ -25,7 +25,7 @@ int Saobarbeta::hand() {
 	myhand =rand() % (sticks+1);
 	return myhand;
 }
-int Saobarbeta::guess ( const std::vector<int>& cantadas ) {
+int Smarty::guess ( const std::vector<int>& cantadas ) {
     if(firstRound){
         for (int i=0;i<cantadas.size();i++){
             opponentSticks.push_back(totalSticks);
@@ -60,7 +60,7 @@ int Saobarbeta::guess ( const std::vector<int>& cantadas ) {
 
 	return myguess;
 }
-void Saobarbeta::settle_round ( const std::vector<int>& numeroDePalitos, const std::vector<int>& cantadas ) {
+void Smarty::settle_round ( const std::vector<int>& numeroDePalitos, const std::vector<int>& cantadas ) {
 	int sum = 0;
     for ( auto x: numeroDePalitos ) {
 		if ( x > 0 )
@@ -79,7 +79,7 @@ void Saobarbeta::settle_round ( const std::vector<int>& numeroDePalitos, const s
 		sticks--;
 	}
 }
-void Saobarbeta::end_round() {
+void Smarty::end_round() {
 
 
     sticks=totalSticks;
