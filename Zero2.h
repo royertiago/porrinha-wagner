@@ -1,7 +1,7 @@
 #ifndef ZERO2_H
 #define ZERO2_H
 
-#include "Player.h"
+#include "player.h"
 namespace wagner{
 
     class Zero2 : public Player {

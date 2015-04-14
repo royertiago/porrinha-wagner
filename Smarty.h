@@ -1,6 +1,6 @@
 #ifndef SMARTY_H
 #define SMARTY_H
-#include "Player.h"
+#include "player.h"
 #include <iostream>
 #include <vector>
 

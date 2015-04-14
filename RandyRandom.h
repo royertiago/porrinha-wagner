@@ -1,7 +1,7 @@
 #ifndef RANDYRANDOM_H
 #define RANDYRANDOM_H
 
-#include "Player.h"
+#include "player.h"
 class randyRandom : public Player {
 		int vitorias = 0;
 		int minhaVitoria = 0;
