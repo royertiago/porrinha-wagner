@@ -1,6 +1,7 @@
 #include "Zero2.h"
-#include "util.h"
-namespace zero2 {
+#include "core/util.h"
+#include "stdlib.h"
+namespace wagner {
 	Zero2::Zero2(std::string name):_name(name)
 	{
 
@@ -11,19 +12,31 @@ namespace zero2 {
 
     }
 	int Zero2::hand() {
+        if(rand()%100<5){
+            return rand()%core::chopsticks(core::index(this))+1;
+        }
 		return 0;
 	}
-	int Zero2::guess ( const std::vector<int>& cantadas ) {
-	    core::chopstick_count()/2;
+	int Zero2::guess () {
+       int half=core::chopstick_count()/2;
+	   int guess= core::chopstick_count()/2;
+
+       while(!core::valid_guess(guess)){
+            guess++;
+            if(guess>  core::chopstick_count())break;
+       }
+       guess=half;
+       while(!core::valid_guess(guess)){
+            guess--;
+       }
+       return guess;
 
 
 	}
-	void Zero2::settle_round(
-                const std::vector<int>& hands,
-                const std::vector<int>& guesses
-    ) {}
     std::string Zero2::name() const{
-
+        return "zero2";
+    }
+    void Zero2::end_round(){
     }
 
 }

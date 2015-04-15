@@ -1,8 +1,8 @@
 #ifndef ZERO2_H
 #define ZERO2_H
 
-#include "Player.h"
-namespace zero2{
+#include "player.h"
+namespace wagner{
 
     class Zero2 : public Player {
         public:
@@ -14,13 +14,11 @@ namespace zero2{
 
             int hand() override;
 
-            int guess( const std::vector<int>& other_guesses ) override;
+            int guess() override;
 
-            void settle_round(
-                const std::vector<int>& hands,
-                const std::vector<int>& guesses
-            ) override;
-            void end_round(){}
+            void end_round();
+            void begin_game(){}
+            void end_game(){}
 
 
         protected:
