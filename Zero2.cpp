@@ -18,10 +18,11 @@ namespace wagner {
 
         while( !core::valid_guess(guess) ) {
             guess++;
-            if( guess > core::chopstick_count() )
+            if( guess > core::chopstick_count() ) {
+                guess = half;
                 break;
+            }
         }
-        guess = half;
         while( !core::valid_guess(guess) )
              guess--;
 
